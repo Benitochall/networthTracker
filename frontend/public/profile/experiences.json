@@ -1,0 +1,35 @@
+{
+    "experiences": [
+        {
+            "title": "Software Engineering Intern",
+            "subtitle": "Breakthrough Fuel LLC",
+            "workType": "Internship",
+            "workDescription": [
+                "Worked on Dev team, handling full-stack tickets",
+                "Utilized Python and JavaScript(React)",
+                "Agile Scrum / Waterfall Enviroment"
+            ],
+            "dateText": "05/2023 – Present"
+        },
+        {
+            "title": "Academic Tutor",
+            "subtitle": "UW Athletics and Math Dept.",
+            "workType": "Part-time",
+            "workDescription": [
+                "Academic tutor for Math, Econ, and Physics",
+                "Course assistant for precalc"
+            ],
+            "dateText": "08/2022 – Present"
+        },
+        {
+            "title": "Project Lead",
+            "subtitle": "Pivot Interactives",
+            "workType": "Part-time",
+            "workDescription": [
+                "Worked as a videographer, animator, video editor, and content writer on several different lab projects",
+                "Managed biology content writing"
+            ],
+            "dateText": "06/2020 – 01/2022"
+        }
+    ]
+}

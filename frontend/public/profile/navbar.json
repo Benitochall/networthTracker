@@ -1,0 +1,44 @@
+{
+    "logo" : {
+        "source": "images/uw-crest-color-300x180.png",
+        "height" : 45,
+        "width" : 50
+    },
+    "sections": [
+        {
+            "title": "Home",
+            "href": "/"
+        },
+        {
+            "title": "About",
+            "href": "/about"
+        },
+        {
+            "title": "Skills",
+            "href": "/skills"
+        },
+        {
+            "title": "Education",
+            "href": "/education"
+        },
+        {
+            "title": "Experience",
+            "href": "/experience"
+        },
+        {
+            "title": "Projects",
+            "href": "/projects"
+        },
+        {
+            "title": "Net Worth",
+            "href": "/networth"
+
+        },
+        {
+            "title": "Resume",
+            "href": "https://docs.google.com/document/d/1RHvzbD0AXycyROAO5Et_fGjCYftTyBrZ/edit?usp=sharing&ouid=113293663692705170897&rtpof=true&sd=true",
+            "type": "link"
+        }
+    ]
+
+}
