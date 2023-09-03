@@ -1,0 +1,22 @@
+{
+    "education":[
+        {
+            "title": "AUG 2020 - MAY 2024",
+            "cardTitle": "B.Sci, Computer Science",
+            "cardSubtitle":"Univeristy Wisconsin-Madison",
+            "cardDetailedText": "GPA- 3.801"
+        },
+        {
+            "title": "AUG 2020 - December 2023",
+            "cardTitle": "B.Sci, Mathematics",
+            "cardSubtitle":"Univeristy Wisconsin-Madison",
+            "cardDetailedText": "GPA- 3.801"
+        },
+        {
+            "title": "Jun 2020",
+            "cardTitle": "Henry Sibley High School",
+            "cardSubtitle":"Mendota Heights, MN",
+            "cardDetailedText": "GPA-3.930"
+        }
+    ]
+}

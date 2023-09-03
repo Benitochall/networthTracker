@@ -1,0 +1,16 @@
+{
+    "social": [
+        {
+            "network" : "linkedin",
+            "href": "https://www.linkedin.com/in/bennett-challifour-14b47a246/"
+        },
+        {
+            "network" : "github",
+            "href": "https://github.com/benitochall"
+        },
+        {
+            "network" : "email",
+            "href": "mailto:b.challifour@gmail.com"
+        }
+    ]
+}

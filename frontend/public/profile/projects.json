@@ -1,0 +1,59 @@
+{
+    "projects" : [
+        {
+            "image" : "images/projects/",
+            "title": "Dev Portfolio",
+            "bodyText": "- Developer Portfolio Website made in React",
+            "links": [
+                {
+                    "text": "GitHub",
+                    "href": ""
+                },
+                {
+                    "text": "Live",
+                    "href": ""
+                }
+            ],
+            "tags" : [
+                "React",
+                "SQLite",
+                "JavaScript"
+            ]
+        },
+        {
+            "image" : "images/projects/514Project.jpg",
+            "title": "The Methodizer",
+            "bodyText": "- Ordinary Differential Equation Solver\n - Assess the accuracy of different numerical methods for solving ODE's\n - Computes an **efficacy** value based on runtime, memory, and accuracy",
+            "links": [
+                {
+                    "text": "GitHub",
+                    "href": ""
+                },
+                {
+                    "text": "Demo",
+                    "href": "https://drive.google.com/file/d/1ZXMylwwaLSAm7KoAKHj7FkfczmIfLA-0/view?usp=sharing"
+                }
+            ],
+            "tags" : [
+                "Python",
+                "C"
+            ]
+        },
+        {
+            "image" : "images/projects/",
+            "title": "Net Worth Tracker",
+            "bodyText": "- A React app that tracks my finances as well as current portfoilio evaluation.\n - Data is stored in a SQLite Database\n - Python backend and React frontend",
+            "links": [
+                {
+                    "text": "GitHub",
+                    "href": "https://github.com/mayankagarwal09/QuietHours-Android"
+                }
+            ],
+            "tags" : [
+                "React",
+                "Python",
+                "SQLite"
+            ]
+        }
+    ]
+}
