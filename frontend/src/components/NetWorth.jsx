@@ -32,25 +32,19 @@ function NetWorth() {
     else {
       try {
         const stockUpdate = await updateStocks(selectedOption, currencyAmount, memo);
-        console.log(stockUpdate)
         const stockAmounts = stockUpdate.split(',');
-        for (const stockEntry of stockAmounts) {
-          const stock = stockEntry.split(':');
-          if (stock[0].trim() === 'VOO') {
-            setVooStockAmount(Number(stock[1].trim()));
-          }
-          if (stock[0].trim() === 'GOOGL') {
-            setGooglStockAmount(Number(stock[1].trim()));
-          }
-          if (stock[0].trim() === 'PLTR') {
-            setPltrStockAmount(Number(stock[1].trim()));
-          }
+        if (stockAmounts[0].trim() === 'VOO') {
+          setVooStockAmount(Number(stockAmounts[1].trim()+ vooStockAmount));
         }
-        // the last thing to do is to render the new pull stocks from database
-        useEffect(() => {
-          pullStockAmountFromDatabase();
-        }, []);
+        if (stock[0].trim() === 'GOOGL') {
+          setGooglStockAmount(Number(stockAmounts[1].trim() )+ googlStockAmount);
+        }
+        if (stock[0].trim() === 'PLTR') {
+          setPltrStockAmount(Number(stockAmounts[1].trim()) + pltrStockAmount);
+        }
 
+        // the last thing to do is to render the new pull stocks from database
+        await pullStockAmountFromDatabase();
       } catch (error) {
         console.error(error);
       }

@@ -13,7 +13,7 @@ database_to_update = place.lower()
 
 
 current_eval = get_live_price(ticker)
-amount_of_stock_bought = amount/current_eval
+amount_of_stock_bought = float(amount)/float(current_eval)
 print(f"{ticker}, {amount_of_stock_bought}")
 
 # now we go into the database and update the amount of stock we have
@@ -24,5 +24,5 @@ with sqlite3.connect('/Users/benitochall/Documents/personalDevelopment/aboutMePr
     VALUES (?)
     """
 
-    data_to_insert = (amount,)
+    data_to_insert = (amount_of_stock_bought,)
     cursor.execute(insert_data_sql, data_to_insert)
