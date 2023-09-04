@@ -4,7 +4,7 @@ from datetime import datetime
 
 database_to_update = sys.argv[1]
 amount = sys.argv[2]
-# place = sys.argv[3]
+place = sys.argv[3]
 
 # get current date and format it as a string
 current_datetime = datetime.now()
@@ -21,7 +21,7 @@ with sqlite3.connect('/Users/benitochall/Documents/personalDevelopment/aboutMePr
     VALUES (?, ?, ?)
     """
 
-    data_to_insert = (formatted_date, "capital center", amount)
+    data_to_insert = (formatted_date, place, amount)
     cursor.execute(insert_data_sql, data_to_insert)
 
 
