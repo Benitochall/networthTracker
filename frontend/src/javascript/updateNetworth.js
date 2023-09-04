@@ -33,7 +33,6 @@ const updateNetworth = async (selectedOption, currencyAmount, memo) => {
         Clothing: 'clothing',
         Travel: 'travel',
         Misc: 'misc',
-        Investment: 'investment',
         'Add to Investment Account': 'amountInvested',
       };
 

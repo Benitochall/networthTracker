@@ -31,7 +31,7 @@ const updateStocks = async (selectedOption, currencyAmount, memo) => {
     const database = databaseMap[selectedOption] || '';
     try {
       const output = await executePythonScript(database, currencyAmount, memo);
-      return Number(output);
+      return output;
     } catch (error) {
       console.error(error);
       throw error;
