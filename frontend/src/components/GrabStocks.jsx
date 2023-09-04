@@ -1,10 +1,10 @@
 import { React, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useTotalAmount } from './context/TotalAmountContext';
+import { useStockEvaluation } from './context/StockEvaluationContext';
 
 function GrabStocks({ vooStockAmount, googlStockAmount, pltrStockAmount }) {
   const [output, setOutput] = useState('');
-  const { updateTotalAmount } = useTotalAmount();
+  const { updateStockEvaluation } = useStockEvaluation();
 
   const executePythonScript = async () => {
     const pythonScript = '/Users/benitochall/Documents/personalDevelopment/aboutMeProject/aboutMe/backend/pullStocks/pullstockdata.py';
@@ -37,14 +37,14 @@ function GrabStocks({ vooStockAmount, googlStockAmount, pltrStockAmount }) {
 
   useEffect(() => {
     if (output && vooStockAmount && googlStockAmount && pltrStockAmount) {
-      // Parse and calculate the totalAmount whenever output changes
+      // Parse and calculate the StockEvaluation whenever output changes
       let vooNum;
       let pltrNum;
       let googlNum;
 
       const stocks = output.split(',');
-      for (let i = 0; i < stocks.length; i += 1) {
-        const stock = stocks[i].split(':');
+      for (const stockEntry of stocks) {
+        const stock = stockEntry.split(':');
         if (stock[0] === 'VOO') {
           vooNum = Number(stock[1]);
         }
@@ -59,9 +59,9 @@ function GrabStocks({ vooStockAmount, googlStockAmount, pltrStockAmount }) {
       const vooAmount = vooNum * Number(vooStockAmount);
       const googlAmount = googlNum * Number(googlStockAmount);
       const pltrAmount = pltrNum * Number(pltrStockAmount);
-      const newTotalAmount = Math.ceil((vooAmount + googlAmount + pltrAmount) * 100) / 100;
+      const newStockEvaluation = vooAmount + googlAmount + pltrAmount;
 
-      updateTotalAmount(newTotalAmount);
+      updateStockEvaluation(newStockEvaluation);
     }
   }, [output, vooStockAmount, googlStockAmount, pltrStockAmount]);
   return (

@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import useDarkMode from 'use-dark-mode';
 import AppContext from './AppContext';
-import { TotalAmountProvider } from './components/context/TotalAmountContext';
+import { StockEvaluationProvider } from './components/context/StockEvaluationContext';
 import MainApp from './MainApp';
 import GlobalStyles from './theme/GlobalStyles';
 import { lightTheme, darkTheme } from './theme/themes';
@@ -17,14 +17,14 @@ function App() {
   return (
     <AppContext.Provider value={{ darkMode }}>
       <ThemeProvider theme={darkMode.value ? darkTheme : lightTheme}>
-        <TotalAmountProvider>
+        <StockEvaluationProvider>
           <GlobalStyles />
           <div className="App">
             <BrowserRouter>
               <MainApp />
             </BrowserRouter>
           </div>
-        </TotalAmountProvider>
+        </StockEvaluationProvider>
       </ThemeProvider>
     </AppContext.Provider>
   );
