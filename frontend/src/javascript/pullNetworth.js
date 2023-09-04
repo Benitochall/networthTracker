@@ -1,5 +1,3 @@
-
-
 const executePythonScript = async () => {
   const pythonScript = '/Users/benitochall/Documents/personalDevelopment/aboutMeProject/aboutMe/backend/pullFinances/pullFinances.py';
 
@@ -24,10 +22,9 @@ const executePythonScript = async () => {
   }
 };
 
-const pullNetworth = async (selectedOption, currencyAmount) => {
+const pullNetworth = async () => {
   try {
-    const output = await executePythonScript(selectedOption, currencyAmount);
-    console.log(output)
+    const output = await executePythonScript();
     return Number(output);
   } catch (error) {
     console.error(error);

@@ -1,6 +1,6 @@
-const executePythonScript = async (selectedOption, currencyAmount) => {
+const executePythonScript = async (selectedOption, currencyAmount, memo) => {
     const pythonScript = '/Users/benitochall/Documents/personalDevelopment/aboutMeProject/aboutMe/backend/updateFinances/updateFinances.py';
-    const args = `${selectedOption} ${currencyAmount}`;
+    const args = `${selectedOption} ${currencyAmount} ${memo}`;
   
     try {
       const response = await fetch('http://localhost:3001/executePython', {
@@ -23,7 +23,7 @@ const executePythonScript = async (selectedOption, currencyAmount) => {
     }
 };
 
-const updateNetworth = async (selectedOption, currencyAmount) => {
+const updateNetworth = async (selectedOption, currencyAmount, memo) => {
     const databaseMap = {
         Paycheck: 'earnings',
         Gift: 'gifts',
@@ -39,8 +39,7 @@ const updateNetworth = async (selectedOption, currencyAmount) => {
 
     const database = databaseMap[selectedOption] || '';
     try {
-      const output = await executePythonScript(database, currencyAmount);
-      console.log(output)
+      const output = await executePythonScript(database, currencyAmount, memo);
       return Number(output);
     } catch (error) {
       console.error(error);

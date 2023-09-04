@@ -6,20 +6,20 @@ import UpdateNetworthBox from './UpdateNetworthBox';
 import FinacneForm from './FinanceForm';
 import { updateNetworth } from '../javascript/updateNetworth';
 import { pullNetworth } from '../javascript/pullNetworth';
+import { pullStockAmountFromDatabase } from '../javascript/pullStockAmountFromDatabase';
 
 function NetWorth() {
-  const vooStockAmount = 2.91097;
-  const googlStockAmount = 5;
-  const pltrStockAmount = 15;
+  const [vooStockAmount, setVooStockAmount ] = useState(0);
+  const [googlStockAmount, setGooglStockAmount ] = useState(0);
+  const [pltrStockAmount, setPltrStockAmount ] = useState(0);
   const { stockEvaluation } = useStockEvaluation();
   const [totalNetworth, setTotalNetworth] = useState(0);
   const [accountBalance, setAccountBalance] = useState(0);
 
-  const handleFinanceFormSubmit = async (selectedOption, currencyAmount) => {
+  const handleFinanceFormSubmit = async (selectedOption, currencyAmount, memo) => {
     try {
-      const updatedAccountBalance = await updateNetworth(selectedOption, currencyAmount);
+      const updatedAccountBalance = await updateNetworth(selectedOption, currencyAmount, memo);
       setAccountBalance(updatedAccountBalance);
-      console.log(accountBalance);
       setTotalNetworth(Math.ceil((stockEvaluation + accountBalance) * 100) / 100);
     } catch (error) {
       console.error(error);
@@ -34,9 +34,30 @@ function NetWorth() {
 
   // pull networth is done when the component initally mounts
   useEffect(() => {
-    pullNetworth()
-      .then((initialAccountBalance) => {
+    Promise.all([pullNetworth(), pullStockAmountFromDatabase()])
+      .then(([initialAccountBalance, result]) => {
+        // Set account balance
         setAccountBalance(initialAccountBalance);
+  
+        // Parse and set stock amounts
+        console.log(result)
+        const stockAmounts = result.split(',');
+        for (const stockEntry of stockAmounts) {
+          const stock = stockEntry.split(':');
+          if (stock[0].trim() === 'VOO') {
+            setVooStockAmount(Number(stock[1].trim()));
+          }
+          if (stock[0].trim() === 'GOOGL') {
+            setGooglStockAmount(Number(stock[1].trim()));
+          }
+          if (stock[0].trim() === 'PLTR') {
+            setPltrStockAmount(Number(stock[1].trim()));
+          }
+        }
+        console.log(vooStockAmount)
+        console.log(googlStockAmount)
+        console.log(pltrStockAmount)
+
       })
       .catch((error) => {
         console.error(error);

@@ -29,6 +29,7 @@ const formContainerStyle = {
 function FinacneForm({ onSubmit }) {
   const [selectedOption, setSelectedOption] = useState('');
   const [ amount, setAmount] = useState('');
+  const [memo, setMemo ] = useState(''); 
 
   // Dropdown options
   const dropdownOptions = ['Paycheck', 'Gift', 'Gas', 'Education', 'Rent', 'Food', 'Clothing', 'Travel', 'Misc', 'Investment', 'Add to Investment Account'];
@@ -41,9 +42,13 @@ function FinacneForm({ onSubmit }) {
     setAmount(event.target.value);
   };
 
+  const handleMemoChange = (event) => {
+    setMemo(event.target.value);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit(selectedOption, amount)
+    onSubmit(selectedOption, amount, memo)
   };
 
   return (
@@ -68,6 +73,16 @@ function FinacneForm({ onSubmit }) {
           value={amount}
           onChange={handleCurrencyInputChange}
           placeholder="Enter amount"
+          style = {inputStyle}
+        />
+      </label>
+      <label style= {labelStyle}>
+        Memo:
+        <input 
+          type="text"
+          value={memo}
+          onChange={handleMemoChange}
+          placeholder="Memo"
           style = {inputStyle}
         />
       </label>
