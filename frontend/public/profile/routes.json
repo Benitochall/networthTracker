@@ -24,11 +24,6 @@
             "component": "Projects",
             "path": "/projects",
             "headerTitle": "Projects"
-        },
-        {
-            "component": "NetWorth",
-            "path": "/networth",
-            "headerTitle": "Net Worth"
         }
     ]
 }

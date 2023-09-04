@@ -4,9 +4,13 @@ import FallbackSpinner from './components/FallbackSpinner';
 import NavBarWithRouter from './components/NavBar';
 import Home from './components/Home';
 import endpoints from './constants/endpoints';
+import NetWorth from './components/NetWorth'; 
+import LoginPage from './LoginPage'; 
+import ProtectedRoute from './ProtectedRoute'; 
 
 function MainApp() {
   const [data, setData] = useState(null);
+  const [authenticated, setAuthenticated] = useState(false); // Initialize authenticated state
 
   useEffect(() => {
     fetch(endpoints.routes, {
@@ -24,8 +28,8 @@ function MainApp() {
         <Switch>
           <Suspense fallback={<FallbackSpinner />}>
             <Route exact path="/" component={Home} />
-            {data
-              && data.sections.map((route) => {
+            {data &&
+              data.sections.map((route) => {
                 const SectionComponent = React.lazy(() => import('./components/' + route.component));
                 return (
                   <Route
@@ -37,6 +41,12 @@ function MainApp() {
                   />
                 );
               })}
+            <ProtectedRoute
+              path="/networth"
+              component={NetWorth}
+              isAuthenticated={authenticated}
+            />
+            <Route path="/login" component={() => <LoginPage onLogin={() => setAuthenticated(true)} />} />
           </Suspense>
         </Switch>
       </main>
