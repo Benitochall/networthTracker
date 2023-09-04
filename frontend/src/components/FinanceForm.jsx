@@ -76,6 +76,18 @@ function FinacneForm({ onSubmit }) {
           style = {inputStyle}
         />
       </label>
+      {selectedOption === 'Investment' ? (
+        <label style= {labelStyle}>
+        Ticker:
+        <input 
+          type="text"
+          value={memo}
+          onChange={handleMemoChange}
+          placeholder="Ticker"
+          style = {inputStyle}
+        />
+      </label>
+      ):
       <label style= {labelStyle}>
         Memo:
         <input 
@@ -85,7 +97,7 @@ function FinacneForm({ onSubmit }) {
           placeholder="Memo"
           style = {inputStyle}
         />
-      </label>
+      </label>}
       <button style={submitStyle} type="submit">Submit</button>
     </form>
   );

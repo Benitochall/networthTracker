@@ -7,6 +7,7 @@ import FinacneForm from './FinanceForm';
 import { updateNetworth } from '../javascript/updateNetworth';
 import { pullNetworth } from '../javascript/pullNetworth';
 import { pullStockAmountFromDatabase } from '../javascript/pullStockAmountFromDatabase';
+import { updateStocks } from '../javascript/updateStocks';
 
 function NetWorth() {
   const [vooStockAmount, setVooStockAmount ] = useState(0);
@@ -17,13 +18,43 @@ function NetWorth() {
   const [accountBalance, setAccountBalance] = useState(0);
 
   const handleFinanceFormSubmit = async (selectedOption, currencyAmount, memo) => {
-    try {
-      const updatedAccountBalance = await updateNetworth(selectedOption, currencyAmount, memo);
-      setAccountBalance(updatedAccountBalance);
-      setTotalNetworth(Math.ceil((stockEvaluation + accountBalance) * 100) / 100);
-    } catch (error) {
-      console.error(error);
-      setAccountBalance(0);
+
+    if (selectedOption !== 'Investment'){
+      try {
+        const updatedAccountBalance = await updateNetworth(selectedOption, currencyAmount, memo);
+        setAccountBalance(updatedAccountBalance);
+        setTotalNetworth(Math.ceil((stockEvaluation + accountBalance) * 100) / 100);
+      } catch (error) {
+        console.error(error);
+        setAccountBalance(0);
+      }
+    }
+    else {
+      try {
+        const stockUpdate = await updateStocks(selectedOption, currencyAmount, memo);
+        console.log(stockUpdate)
+        const stockAmounts = stockUpdate.split(',');
+        for (const stockEntry of stockAmounts) {
+          const stock = stockEntry.split(':');
+          if (stock[0].trim() === 'VOO') {
+            setVooStockAmount(Number(stock[1].trim()));
+          }
+          if (stock[0].trim() === 'GOOGL') {
+            setGooglStockAmount(Number(stock[1].trim()));
+          }
+          if (stock[0].trim() === 'PLTR') {
+            setPltrStockAmount(Number(stock[1].trim()));
+          }
+        }
+        // the last thing to do is to render the new pull stocks from database
+        useEffect(() => {
+          pullStockAmountFromDatabase();
+        }, []);
+
+      } catch (error) {
+        console.error(error);
+      }
+
     }
   };
 
@@ -40,7 +71,6 @@ function NetWorth() {
         setAccountBalance(initialAccountBalance);
   
         // Parse and set stock amounts
-        console.log(result)
         const stockAmounts = result.split(',');
         for (const stockEntry of stockAmounts) {
           const stock = stockEntry.split(':');
@@ -54,9 +84,6 @@ function NetWorth() {
             setPltrStockAmount(Number(stock[1].trim()));
           }
         }
-        console.log(vooStockAmount)
-        console.log(googlStockAmount)
-        console.log(pltrStockAmount)
 
       })
       .catch((error) => {
