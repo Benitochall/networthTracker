@@ -31,7 +31,7 @@ const LoginPage = ({ onLogin }) => {
           onChange={onChangeText}
         />
         <button style={{ marginLeft: '10px' }} type="submit">
-          Login
+          Autheticate
         </button>
       </form>
     </div>
