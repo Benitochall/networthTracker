@@ -49,6 +49,9 @@ function FinacneForm({ onSubmit }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     onSubmit(selectedOption, amount, memo)
+    setAmount('')
+    setMemo('')
+    setSelectedOption('')
   };
 
   return (

@@ -96,7 +96,7 @@ function NetWorth() {
         />
         <RedBox
           leftText="Net Worth:"
-          rightText={stockEvaluation === 0 ? 'Calculating...' : `$${totalNetworth}`}
+          rightText={stockEvaluation === 0 || accountBalance == 0 ? 'Calculating...' : `$${totalNetworth}`}
         />
         <h1
           style={{
