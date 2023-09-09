@@ -1,13 +1,13 @@
 {
     "projects" : [
         {
-            "image" : "images/projects/",
+            "image" : "images/projects/aboutme.png",
             "title": "Dev Portfolio",
             "bodyText": "- Developer Portfolio Website made in React",
             "links": [
                 {
                     "text": "GitHub",
-                    "href": ""
+                    "href": "https://github.com/Benitochall/aboutMe"
                 },
                 {
                     "text": "Live",
@@ -27,7 +27,7 @@
             "links": [
                 {
                     "text": "GitHub",
-                    "href": ""
+                    "href": "https://github.com/Benitochall/P514"
                 },
                 {
                     "text": "Demo",
@@ -40,19 +40,36 @@
             ]
         },
         {
-            "image" : "images/projects/",
+            "image" : "images/projects/networth.png",
             "title": "Net Worth Tracker",
             "bodyText": "- A React app that tracks my finances as well as current portfoilio evaluation.\n - Data is stored in a SQLite Database\n - Python backend and React frontend",
             "links": [
                 {
                     "text": "GitHub",
-                    "href": "https://github.com/mayankagarwal09/QuietHours-Android"
+                    "href": ""
                 }
             ],
             "tags" : [
                 "React",
                 "Python",
                 "SQLite"
+            ]
+        },
+        {
+            "image" : "images/projects/metafrontend.png",
+            "title": "Meta Front-end Developer Certificate",
+            "bodyText": "- A 9 course, 7 month certificate program teaching the basics of frontend development\n - Topics covered include: Javascript, Version control, HTML, CSS, React",
+            "links": [
+                {
+                    "text": "Coursera",
+                    "href": "https://www.coursera.org/professional-certificates/meta-front-end-developer?utm_source=gg&utm_medium=sem&utm_campaign=B2C_NAMER_meta-front-end-developer_meta_FTCOF_professional-certificates_facebook-meta-country-US-country-CA&utm_content=B2C&campaignid=17619184706&adgroupid=136984750966&device=c&keyword=coursera%20front%20end%20web%20development&matchtype=b&network=g&devicemodel=&adpostion=&creativeid=607131113492&hide_mobile_promo&gclid=CjwKCAjwjOunBhB4EiwA94JWsBVkucb2BDdRwDsCM1RrR41IyWPNOYjJHoOyCpREl6_0n41_NpTBDhoCb4wQAvD_BwE"
+                }
+            ],
+            "tags" : [
+                "React",
+                "CSS",
+                "HTML",
+                "JavaScript"
             ]
         }
     ]
